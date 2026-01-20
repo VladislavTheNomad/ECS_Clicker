@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30ac85bb1f304acb9dc4a66a34aa5034, type: 3}
-  m_Name: Business1
+  m_Name: Business5
   m_EditorClassIdentifier: 
-  name: Solo Solutions
-  timeToIncome: 3
-  baseCost: 3
-  baseIncome: 3
+  name: MegaOil Holdings
+  timeToIncome: 30
+  baseCost: 5000
+  baseIncome: 5000
   upgrade1Name: Child labor
-  upgrade1Modificator: 0.5
-  upgrade1Cost: 50
+  upgrade1Modificator: 2
+  upgrade1Cost: 100000
   upgrade2Name: Replace everyone with AI
-  upgrade2Modificator: 1
-  upgrade2Cost: 400
+  upgrade2Modificator: 4
+  upgrade2Cost: 500000

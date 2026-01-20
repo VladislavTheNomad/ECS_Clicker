@@ -1,4 +1,5 @@
-﻿using Leopotam.EcsLite;
+﻿using ECSTest.ECS.Data;
+using Leopotam.EcsLite;
 
 namespace ECSTest
 {
@@ -15,6 +16,8 @@ namespace ECSTest
         {
             var world = systems.GetWorld();
             
+            var businessDataPool = world.GetPool<BusinessDataComponent>();
+            
             var evtPoolBalance = world.GetPool<BalanceChangedEvent>();
             var filterBalance =  world.Filter<BalanceChangedEvent>().End();
 
@@ -23,15 +26,23 @@ namespace ECSTest
                 _uiView.SetBalance(evtPoolBalance.Get(entity).NewBalance);
                 world.DelEntity(entity);
             }
+            
+            var filterBusinessData = world.Filter<BusinessDataComponent>().End();
 
-            var businessDataPool = world.GetPool<BusinessDataComponent>();
+            foreach (var entity in filterBusinessData)
+            {
+                if (businessDataPool.Get(entity).Level > 0)
+                {
+                    _uiView.UpdateProgressBar(entity,  businessDataPool.Get(entity).ProgressTime);
+                }
+            }
+            
             var dirtyPool = world.GetPool<BusinessUiDirtyTag>();
             var dirtyFilter =  world.Filter<BusinessUiDirtyTag>().Inc<BusinessDataComponent>().End();
 
             foreach (var entity in dirtyFilter)
             {
                 _uiView.SetBusinessLevel(entity, businessDataPool.Get(entity).Level);
-                
                 dirtyPool.Del(entity);
             }
         }

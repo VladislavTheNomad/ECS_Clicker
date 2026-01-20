@@ -1209,10 +1209,10 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: e5ee24083a271f743aae4b5a886e68c9, type: 2}
   businessConfigs:
   - {fileID: 11400000, guid: 5f5f57c445ea3fd40acbc7e4f3fcc62c, type: 2}
-  - {fileID: 11400000, guid: 5f5f57c445ea3fd40acbc7e4f3fcc62c, type: 2}
-  - {fileID: 11400000, guid: 5f5f57c445ea3fd40acbc7e4f3fcc62c, type: 2}
-  - {fileID: 11400000, guid: 5f5f57c445ea3fd40acbc7e4f3fcc62c, type: 2}
-  - {fileID: 11400000, guid: 5f5f57c445ea3fd40acbc7e4f3fcc62c, type: 2}
+  - {fileID: 11400000, guid: 8db7fa72ae72ebf4382d6e9dd49d3956, type: 2}
+  - {fileID: 11400000, guid: f7aed5944fad9d94c931cb72c51f6dbb, type: 2}
+  - {fileID: 11400000, guid: e402029b156cf3f419a3c1fbcaa5c1f0, type: 2}
+  - {fileID: 11400000, guid: 9e23144b8a621284b8f634cfc0831382, type: 2}
 --- !u!4 &1433220612
 Transform:
   m_ObjectHideFlags: 0
@@ -1310,7 +1310,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 806842094}
   m_HandleRect: {fileID: 806842093}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

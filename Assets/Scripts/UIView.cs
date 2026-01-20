@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ECSTest.ECS.Data;
 using TMPro;
 using UnityEngine;
 
@@ -10,9 +11,10 @@ namespace ECSTest
         
         private readonly Dictionary<int, BusinessCardView> _businessDict = new Dictionary<int, BusinessCardView>();
 
-        public void RegisterNewBusiness(int entityID, BusinessCardView businessCardView)
+        public void RegisterNewBusiness(int entityID, BusinessCardView businessCardView, BusinessConfig config)
         {
-            _businessDict[entityID+1] = businessCardView;
+            _businessDict[entityID] = businessCardView;
+            businessCardView.SetStartConfig(config);
         }
         
         public void SetBalance(int newBalance) =>  balanceText.text = $"{newBalance}$";
@@ -22,6 +24,14 @@ namespace ECSTest
             if (_businessDict.TryGetValue(entity, out var businessCardView))
             {
                 businessCardView.SetLevel(newLevel);
+            }
+        }
+
+        public void UpdateProgressBar(int entity, float currentProgress)
+        {
+            if (_businessDict.TryGetValue(entity, out var businessCardView))
+            {
+                businessCardView.UpdateProgressBar(currentProgress);
             }
         }
     }

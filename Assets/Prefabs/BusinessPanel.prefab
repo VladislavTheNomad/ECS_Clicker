@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8064517883019902863}
   - component: {fileID: 5810855142392490346}
   m_Layer: 5
-  m_Name: BaseIncomeTitle
+  m_Name: IncomeTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Base income
+  m_text: Income
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -956,7 +956,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d95cdcc283402698daa13b76ed5717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  businessName: {fileID: 2015664665534689839}
+  progressBar: {fileID: 4635555198372611680}
+  businessBaseIncome: {fileID: 4048839821191446319}
+  businessLevelUpCost: {fileID: 8351972557757709864}
   level: {fileID: 2674679099457599170}
+  levelUpButton: {fileID: 1209963399622565367}
+  upgrade1Title: {fileID: 7907147210803763210}
+  upgrade1Description: {fileID: 3309803630382611662}
+  upgrade1Cost: {fileID: 5144069601320566864}
+  upgrade2Title: {fileID: 8477330894037210256}
+  upgrade2Description: {fileID: 6052168923567419130}
+  upgrade2Cost: {fileID: 2959334961687035114}
 --- !u!1 &3320485630619518447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,7 +1373,7 @@ GameObject:
   - component: {fileID: 237168542806460838}
   - component: {fileID: 4048839821191446319}
   m_Layer: 5
-  m_Name: CurrentBaseIncome
+  m_Name: CurrentIncome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2225,7 +2236,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.479
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

@@ -41,17 +41,15 @@ namespace ECSTest
                 businessConfig.Config = _businessConfigs[i];
                 
                 ref var data = ref _businessDataComponentPool.Add(entity);
-
+                
                 data.Level = i == 0 ? 1 : 0;
-                data.CurrentProgress = 0f;
+                data.ExpiredTime = 0f;
+                data.ProgressTime = 0f;
                 data.HasUpgrade1 = false;
                 data.HasUpgrade2 = false;
 
                 _businessInfoChangedPool = _world.GetPool<BusinessUiDirtyTag>();
                 _businessInfoChangedPool.Add(entity);
-                
-                /*ref var changeData = ref _businessInfoChangedPool.Add(entity);
-                changeData.NewLevel = data.Level;*/
             }
         }
     }

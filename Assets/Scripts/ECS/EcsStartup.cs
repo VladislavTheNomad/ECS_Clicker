@@ -15,26 +15,46 @@ namespace ECSTest.ECS
         private EcsSystems _systems;
         private EcsWorld _world;
 
-        private void Awake()
+        private void CreateBusinessCards()
         {
-            for (int i = 0;  i < businessConfigs.Length; i++)
+            var dataPool = _world.GetPool<BusinessDataComponent>();
+            var cfgPool = _world.GetPool<BusinessConfigReference>();
+            
+            var filter = _world.Filter<BusinessDataComponent>()
+                .Inc<BusinessConfigReference>()
+                .End();
+
+            foreach (var entity in filter)
+            {
+                var go = Instantiate(businessCard, scrollViewContent.transform);
+                var view = go.GetComponent<BusinessCardView>();
+                view.Init(_world, entity);
+                var config = cfgPool.Get(entity).Config;
+                uiView.RegisterNewBusiness(entity, view, config);
+            }
+            
+            /*for (int i = 1;  i < businessConfigs.Length+1; i++)
             {
                 var business = Instantiate(businessCard, scrollViewContent.transform);
                 var businessView = business.GetComponent<BusinessCardView>();
-                uiView.RegisterNewBusiness(i, businessView);
-            }
+                businessView.Init(_world, i);
+                uiView.RegisterNewBusiness(i, businessView, businessConfigs[i-1]);
+            }*/
         }
 
         private void Start()
         {
             _world = new EcsWorld();
             _systems = new EcsSystems(_world);
-
+            
             _systems
                 .Add(new GameInitSystem(playerData, businessConfigs))
                 .Add(new IncomeSystem())
                 .Add(new UpdateUISystem(uiView))
                 .Init();
+            
+            CreateBusinessCards();
+
         }
         
         private void Update()

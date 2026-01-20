@@ -5,6 +5,7 @@ namespace ECSTest
 {
     public class IncomeSystem : IEcsRunSystem
     {
+        
         public void Run(IEcsSystems systems)
         {
             var world = systems.GetWorld();
@@ -27,11 +28,12 @@ namespace ECSTest
                 
                 if (data.Level <= 0) continue;
                 
-                data.CurrentProgress += Time.deltaTime;
+                data.ExpiredTime += Time.deltaTime;
+                data.ProgressTime = Mathf.Clamp01(data.ExpiredTime/config.timeToIncome);
 
-                if (data.CurrentProgress >= config.timeToIncome)
+                if (data.ExpiredTime >= config.timeToIncome)
                 {
-                    data.CurrentProgress = 0f;
+                    data.ExpiredTime = 0f;
                     
                     float multiplier = 1f;
                     
@@ -51,14 +53,11 @@ namespace ECSTest
                     {
                         ref var playerData = ref playerDataPool.Get(entity);
                         playerData.Balance += income;
-                        Debug.Log($"Player's balance now: {playerData.Balance}");
                         
                         int e = world.NewEntity();
                         ref var evt =  ref balanceChangedPool.Add(e);
                         evt.NewBalance = playerData.Balance;
                     }
-                    
-                    Debug.Log($"Business {config.name} earned {income}$. Player Balance updated.");
                 }
             }
         }
