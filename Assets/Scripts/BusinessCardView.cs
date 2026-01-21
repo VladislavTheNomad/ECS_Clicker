@@ -27,7 +27,6 @@ namespace ECSTest
         
         private EcsWorld _world;
         private int _businessEntity;
-        private BusinessConfig _config;
 
         private void Start()
         {
@@ -56,13 +55,13 @@ namespace ECSTest
 
         public void UpdateUIInfo(BusinessDataComponent data)
         {
-            level.text = data.CurrentIncome.ToString();
+            level.text = data.Level.ToString();
+            businessBaseIncome.text = $"{data.CurrentIncome}$";
+            businessLevelUpCost.text = $"{data.CurrentLevelUpCost}$";
         }
 
         public void SetStartConfig(BusinessConfig config)
         {
-            _config = config;
-
             businessName.text = config.name;
             businessBaseIncome.text = $"{config.baseIncome}$";
             businessLevelUpCost.text = $"{config.baseCost}$";

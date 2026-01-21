@@ -43,6 +43,8 @@ namespace ECSTest
                 ref var data = ref _businessDataComponentPool.Add(entity);
                 
                 data.Level = i == 0 ? 1 : 0;
+                data.CurrentIncome = businessConfig.Config.baseIncome;
+                data.CurrentLevelUpCost = (data.Level + 1) * businessConfig.Config.baseCost;
                 data.ExpiredTime = 0f;
                 data.ProgressTime = 0f;
                 data.HasUpgrade1 = false;
