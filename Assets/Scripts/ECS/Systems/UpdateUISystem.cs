@@ -1,5 +1,6 @@
 ﻿using ECSTest.ECS.Data;
 using Leopotam.EcsLite;
+using System.Diagnostics;
 
 namespace ECSTest
 {
@@ -42,7 +43,7 @@ namespace ECSTest
 
             foreach (var entity in dirtyFilter)
             {
-                _uiView.SetBusinessLevel(entity, businessDataPool.Get(entity).Level);
+                _uiView.UpdateUI(entity, businessDataPool.Get(entity));
                 dirtyPool.Del(entity);
             }
         }

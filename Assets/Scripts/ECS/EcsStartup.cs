@@ -50,6 +50,7 @@ namespace ECSTest.ECS
             _systems
                 .Add(new GameInitSystem(playerData, businessConfigs))
                 .Add(new IncomeSystem())
+                .Add(new ButtonsClickedSystem())
                 .Add(new UpdateUISystem(uiView))
                 .Init();
             

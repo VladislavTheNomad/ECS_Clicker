@@ -10,20 +10,23 @@ namespace ECSTest
         [SerializeField] private TMP_Text balanceText;
         
         private readonly Dictionary<int, BusinessCardView> _businessDict = new Dictionary<int, BusinessCardView>();
+        private readonly Dictionary<int, BusinessConfig> _businessConfDict = new Dictionary<int, BusinessConfig>();
 
         public void RegisterNewBusiness(int entityID, BusinessCardView businessCardView, BusinessConfig config)
         {
             _businessDict[entityID] = businessCardView;
+            _businessConfDict[entityID] = config;
             businessCardView.SetStartConfig(config);
         }
         
         public void SetBalance(int newBalance) =>  balanceText.text = $"{newBalance}$";
 
-        public void SetBusinessLevel(int entity, int newLevel)
+        public void UpdateUI(int entity, BusinessDataComponent data)
         {
             if (_businessDict.TryGetValue(entity, out var businessCardView))
             {
-                businessCardView.SetLevel(newLevel);
+                Debug.Log($"UIView: Setting business {entity}");
+                businessCardView.UpdateUIInfo(data);
             }
         }
 
