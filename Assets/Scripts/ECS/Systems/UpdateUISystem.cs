@@ -1,6 +1,4 @@
-﻿using ECSTest.ECS.Data;
-using Leopotam.EcsLite;
-using System.Diagnostics;
+﻿using Leopotam.EcsLite;
 
 namespace ECSTest
 {

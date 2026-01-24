@@ -6,12 +6,12 @@ namespace ECSTest.ECS
 {
     public class EcsStartup : MonoBehaviour
     {
-        [SerializeField] private UIView uiView;
-        [SerializeField] private GameObject scrollViewContent;
-        [SerializeField] private GameObject businessCard;
-        [SerializeField] private PlayerInitData playerData;
-        [SerializeField] private BusinessConfig[] businessConfigs;
-        [SerializeField] private BusinessNames[] businessNames;
+        [SerializeField] private UIView _uiView;
+        [SerializeField] private GameObject _scrollViewContent;
+        [SerializeField] private GameObject _businessCard;
+        [SerializeField] private PlayerInitData _playerData;
+        [SerializeField] private BusinessConfig[] _businessConfigs;
+        [SerializeField] private BusinessNames[] _businessNames;
         
         private SaveService _saveService;
         private EcsSystems _systems;
@@ -22,13 +22,13 @@ namespace ECSTest.ECS
             _world = new EcsWorld();
             _systems = new EcsSystems(_world);
             
-            _saveService = new SaveService(_world, businessConfigs.Length);
+            _saveService = new SaveService(_world, _businessConfigs.Length);
             
             _systems
-                .Add(new GameInitSystem(playerData, businessConfigs, businessNames, _saveService))
+                .Add(new GameInitSystem(_playerData, _businessConfigs, _businessNames, _saveService))
                 .Add(new IncomeSystem())
                 .Add(new UpdateDataSystem())
-                .Add(new UpdateUISystem(uiView))
+                .Add(new UpdateUISystem(_uiView))
                 .Init();
             
             CreateBusinessCards();
@@ -44,13 +44,13 @@ namespace ECSTest.ECS
 
             foreach (var entity in filter)
             {
-                var go = Instantiate(businessCard, scrollViewContent.transform);
+                var go = Instantiate(_businessCard, _scrollViewContent.transform);
                 var view = go.GetComponent<BusinessCardView>();
                 view.Init(_world, entity);
                 var config = cfgPool.Get(entity).Config;
                 var names = cfgPool.Get(entity).BusinessNames;
                 
-                uiView.RegisterNewBusiness(entity, view, config, names);
+                _uiView.RegisterNewBusiness(entity, view, config, names);
             }
         }
         

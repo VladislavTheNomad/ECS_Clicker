@@ -3,6 +3,6 @@
     public struct UpgradeEvent
     {
         public int BusinessEntity;
-        public int upgradeIndex;
+        public int UpgradeIndex;
     }
 }

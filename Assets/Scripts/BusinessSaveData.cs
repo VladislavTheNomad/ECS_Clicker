@@ -3,11 +3,11 @@
     [System.Serializable]
     public class BusinessSaveData
     {
-        public int level;
-        public int currentIncome;
-        public bool hasUpgrade1;
-        public bool hasUpgrade2;
-        public float expiredTime;
-        public float progressTime;
+        public int Level;
+        public int CurrentIncome;
+        public bool HasUpgrade1;
+        public bool HasUpgrade2;
+        public float ExpiredTime;
+        public float ProgressTime;
     }
 }

@@ -38,7 +38,7 @@ namespace ECSTest
             foreach (var entity in filterUpgrade)
             {
                 var businessEntity = upgradeEventPool.Get(entity).BusinessEntity;
-                var upgradeIndex = upgradeEventPool.Get(entity).upgradeIndex;
+                var upgradeIndex = upgradeEventPool.Get(entity).UpgradeIndex;
 
                 if (!dataPool.Has(businessEntity) || !config.Has(businessEntity)) continue;
                 
@@ -102,10 +102,14 @@ namespace ECSTest
             {
                 int businessEntity = buttonClickedEventPool.Get(entity).BusinessEntity;
 
-                if (!businessDataPool.Has(businessEntity) || !cfgPool.Has(businessEntity)) continue;
+                if (!businessDataPool.Has(businessEntity) || !cfgPool.Has(businessEntity))
+                {
+                    world.DelEntity(entity);
+                    continue;
+                }
                 
                 ref var businessData = ref businessDataPool.Get(businessEntity);
-                var config = cfgPool.Get(businessEntity);
+                var configPool = cfgPool.Get(businessEntity);
 
                 if (playerData.Balance < businessData.CurrentLevelUpCost)
                 {
@@ -120,9 +124,9 @@ namespace ECSTest
                 evt.NewBalance = playerData.Balance;
 
                 businessData.Level += 1;
-                CalculateNewIncome(ref businessData, ref config);
+                CalculateNewIncome(ref businessData, ref configPool);
                 
-                businessData.CurrentLevelUpCost = config.Config.baseCost * (businessData.Level + 1);
+                businessData.CurrentLevelUpCost = configPool.Config.baseCost * (businessData.Level + 1);
 
                 if (!dirtyPool.Has(businessEntity))
                 {

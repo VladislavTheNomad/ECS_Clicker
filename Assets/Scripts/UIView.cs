@@ -7,17 +7,17 @@ namespace ECSTest
 {
     public class UIView : MonoBehaviour
     {
-        [SerializeField] private TMP_Text balanceText;
+        [SerializeField] private TMP_Text _balanceText;
         
         private readonly Dictionary<int, BusinessCardView> _businessDict = new Dictionary<int, BusinessCardView>();
 
-        public void RegisterNewBusiness(int entityID, BusinessCardView businessCardView, BusinessConfig config, BusinessNames businessNames)
+        public void RegisterNewBusiness(int entity, BusinessCardView businessCardView, BusinessConfig config, BusinessNames businessNames)
         {
-            _businessDict[entityID] = businessCardView;
+            _businessDict[entity] = businessCardView;
             businessCardView.SetStartConfig(businessNames, config);
         }
         
-        public void SetBalance(int newBalance) =>  balanceText.text = $"{newBalance}$";
+        public void SetBalance(int newBalance) =>  _balanceText.text = $"{newBalance}$";
 
         public void UpdateUI(int entity, BusinessDataComponent data)
         {

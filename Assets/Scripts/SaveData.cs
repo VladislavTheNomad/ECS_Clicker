@@ -5,7 +5,7 @@ namespace ECSTest
     [Serializable]
     public class SaveData
     {
-        public int balance;
-        public BusinessSaveData[] businessSaveData;
+        public int Balance;
+        public BusinessSaveData[] BusinessSaveDataArray;
     }
 }

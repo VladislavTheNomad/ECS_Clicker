@@ -41,14 +41,14 @@ namespace ECSTest
 
             if (_saveService.TryLoad(out SaveData saveData))
             {
-                playerData.Balance = saveData.balance;
+                playerData.Balance = saveData.Balance;
                 
                 var evt = _world.NewEntity();
                 var balanceChangedPool = _world.GetPool<BalanceChangedEvent>();
                 ref var balanceChanged = ref balanceChangedPool.Add(evt);
                 balanceChanged.NewBalance = playerData.Balance;
                 
-                businessDataArray = saveData.businessSaveData;
+                businessDataArray = saveData.BusinessSaveDataArray;
             }
 
             for (int i = 0; i < _businessConfigs.Length; i++)
@@ -66,13 +66,13 @@ namespace ECSTest
                     var businessData = businessDataArray[i];
                     
                     data.Index = i;
-                    data.Level = businessData.level;
-                    data.CurrentIncome = businessData.currentIncome;
+                    data.Level = businessData.Level;
+                    data.CurrentIncome = businessData.CurrentIncome;
                     data.CurrentLevelUpCost = (data.Level + 1) * businessConfig.Config.baseCost;
-                    data.ExpiredTime = businessData.expiredTime;
-                    data.ProgressTime = businessData.progressTime;
-                    data.HasUpgrade1 = businessData.hasUpgrade1;
-                    data.HasUpgrade2 = businessData.hasUpgrade2;
+                    data.ExpiredTime = businessData.ExpiredTime;
+                    data.ProgressTime = businessData.ProgressTime;
+                    data.HasUpgrade1 = businessData.HasUpgrade1;
+                    data.HasUpgrade2 = businessData.HasUpgrade2;
                 }
                 else
                 {

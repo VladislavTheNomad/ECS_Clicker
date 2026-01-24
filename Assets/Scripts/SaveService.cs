@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace ECSTest
 {
-    
     public class SaveService 
     {
         private readonly string _filePath;
@@ -39,8 +38,8 @@ namespace ECSTest
 
             var save = new SaveData()
             {
-                balance = ReadPlayerBalance(),
-                businessSaveData = ReadBusinessSaveData(),
+                Balance = ReadPlayerBalance(),
+                BusinessSaveDataArray = ReadBusinessSaveData(),
             };
             
             string json = JsonUtility.ToJson(save);
@@ -66,12 +65,12 @@ namespace ECSTest
 
                 result[index] = new BusinessSaveData()
                 {
-                    level = data.Level,
-                    currentIncome = data.CurrentIncome,
-                    hasUpgrade1 = data.HasUpgrade1,
-                    hasUpgrade2 = data.HasUpgrade2,
-                    expiredTime = data.ExpiredTime,
-                    progressTime = data.ProgressTime,
+                    Level = data.Level,
+                    CurrentIncome = data.CurrentIncome,
+                    HasUpgrade1 = data.HasUpgrade1,
+                    HasUpgrade2 = data.HasUpgrade2,
+                    ExpiredTime = data.ExpiredTime,
+                    ProgressTime = data.ProgressTime,
                 };
             }
             
