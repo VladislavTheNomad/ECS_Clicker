@@ -2,6 +2,7 @@
 {
     public struct BusinessDataComponent
     {
+        public int Index;
         public int Level;
         public int CurrentIncome;
         public int CurrentLevelUpCost;

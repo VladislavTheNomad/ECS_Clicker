@@ -216,7 +216,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0411\u0410\u041B\u0410\u041D\u0421"
+  m_text: 'BALANCE:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1213,6 +1213,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f7aed5944fad9d94c931cb72c51f6dbb, type: 2}
   - {fileID: 11400000, guid: e402029b156cf3f419a3c1fbcaa5c1f0, type: 2}
   - {fileID: 11400000, guid: 9e23144b8a621284b8f634cfc0831382, type: 2}
+  businessNames:
+  - {fileID: 11400000, guid: eac402865eeda7848979826e905d841f, type: 2}
+  - {fileID: 11400000, guid: 701f31ae0f005fb4aaa88380ec40bd58, type: 2}
+  - {fileID: 11400000, guid: cc70f84dc2d6d7045b3cdb69c45b95ef, type: 2}
+  - {fileID: 11400000, guid: 88655eafcd07bd149a30f214b63732b1, type: 2}
+  - {fileID: 11400000, guid: 1a009328b4752f14ab07bdc7d0b3233a, type: 2}
 --- !u!4 &1433220612
 Transform:
   m_ObjectHideFlags: 0

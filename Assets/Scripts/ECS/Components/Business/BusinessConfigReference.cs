@@ -5,5 +5,6 @@ namespace ECSTest
     public struct BusinessConfigReference
     {
         public BusinessConfig Config;
+        public BusinessNames BusinessNames;
     }
 }

@@ -34,25 +34,11 @@ namespace ECSTest
                 if (data.ExpiredTime >= config.timeToIncome)
                 {
                     data.ExpiredTime = 0f;
-                    
-                    float multiplier = 1f;
-                    
-                    if (data.HasUpgrade1)
-                    {
-                        multiplier += config.upgrade1Modificator;
-                    }
-
-                    if (data.HasUpgrade2)
-                    {
-                        multiplier += config.upgrade2Modificator;
-                    }
-                    
-                    int income = (int)(data.Level * config.baseIncome * multiplier);
 
                     foreach (var entity in playerFilter)
                     {
                         ref var playerData = ref playerDataPool.Get(entity);
-                        playerData.Balance += income;
+                        playerData.Balance += data.CurrentIncome;
                         
                         int e = world.NewEntity();
                         ref var evt =  ref balanceChangedPool.Add(e);

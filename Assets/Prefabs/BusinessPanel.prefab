@@ -965,9 +965,11 @@ MonoBehaviour:
   upgrade1Title: {fileID: 7907147210803763210}
   upgrade1Description: {fileID: 3309803630382611662}
   upgrade1Cost: {fileID: 5144069601320566864}
+  upgrade1Button: {fileID: 8237761107727264687}
   upgrade2Title: {fileID: 8477330894037210256}
   upgrade2Description: {fileID: 6052168923567419130}
   upgrade2Cost: {fileID: 2959334961687035114}
+  upgrade2Button: {fileID: 8142196825338212778}
 --- !u!1 &3320485630619518447
 GameObject:
   m_ObjectHideFlags: 0
