@@ -31,14 +31,7 @@ namespace ECSTest
         
         private EcsWorld _world;
         private int _businessEntity;
-
-        private void OnEnable()
-        {
-            _levelUpButton.onClick.AddListener(LevelUpClicked);
-            _upgrade1Button.onClick.AddListener(Upgrade1Clicked);
-            _upgrade2Button.onClick.AddListener(Upgrade2Clicked);
-        }
-
+        
         private void OnDisable()
         {
             _levelUpButton.onClick.RemoveListener(LevelUpClicked);
@@ -48,6 +41,10 @@ namespace ECSTest
 
         public void Init(EcsWorld world, int businessEntity)
         {
+            _levelUpButton.onClick.AddListener(LevelUpClicked);
+            _upgrade1Button.onClick.AddListener(Upgrade1Clicked);
+            _upgrade2Button.onClick.AddListener(Upgrade2Clicked);
+            
             _world =  world;
             _businessEntity = businessEntity;
         }

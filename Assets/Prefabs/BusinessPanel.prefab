@@ -956,20 +956,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d95cdcc283402698daa13b76ed5717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  businessName: {fileID: 2015664665534689839}
-  progressBar: {fileID: 4635555198372611680}
-  businessBaseIncome: {fileID: 4048839821191446319}
-  businessLevelUpCost: {fileID: 8351972557757709864}
-  level: {fileID: 2674679099457599170}
-  levelUpButton: {fileID: 1209963399622565367}
-  upgrade1Title: {fileID: 7907147210803763210}
-  upgrade1Description: {fileID: 3309803630382611662}
-  upgrade1Cost: {fileID: 5144069601320566864}
-  upgrade1Button: {fileID: 8237761107727264687}
-  upgrade2Title: {fileID: 8477330894037210256}
-  upgrade2Description: {fileID: 6052168923567419130}
-  upgrade2Cost: {fileID: 2959334961687035114}
-  upgrade2Button: {fileID: 8142196825338212778}
+  _businessName: {fileID: 2015664665534689839}
+  _progressBar: {fileID: 4635555198372611680}
+  _businessBaseIncome: {fileID: 4048839821191446319}
+  _businessLevelUpCost: {fileID: 8351972557757709864}
+  _level: {fileID: 2674679099457599170}
+  _levelUpButton: {fileID: 1209963399622565367}
+  _upgrade1Title: {fileID: 7907147210803763210}
+  _upgrade1Description: {fileID: 3309803630382611662}
+  _upgrade1Cost: {fileID: 5144069601320566864}
+  _upgrade1Button: {fileID: 8237761107727264687}
+  _upgrade2Title: {fileID: 8477330894037210256}
+  _upgrade2Description: {fileID: 6052168923567419130}
+  _upgrade2Cost: {fileID: 2959334961687035114}
+  _upgrade2Button: {fileID: 8142196825338212778}
 --- !u!1 &3320485630619518447
 GameObject:
   m_ObjectHideFlags: 0
